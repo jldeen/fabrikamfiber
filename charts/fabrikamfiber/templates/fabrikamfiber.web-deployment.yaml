@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "fullname" . }}-web
   labels:
     app: {{ template "fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: {{ template "fullname" . }}
+        component: web
     spec:
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -34,6 +35,10 @@ spec:
           value: "sa"
         - name: DB_DATABASE_NAME
           value: "FabrikamFiber"
+        - name: DB_SERVICE_HOST
+          value: "{{ template "fullname" . }}-mssql-service"
+        - name: DB_SERVICE_PORT
+          value: "1433"
         {{ else }}
         - name: DB_DATABASE_NAME
           valueFrom:
