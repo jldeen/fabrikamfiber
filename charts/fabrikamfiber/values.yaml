@@ -8,8 +8,8 @@ imagePullPolicy: IfNotPresent
 
 ## If you need to authenticate to a registry to pull the image, create an image pull secret
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-in-the-cluster-that-holds-your-authorization-token
-#imagePullSecrets:
-#  name: acrjdk8s
+imagePullSecrets:
+ name: acrjdk8s
 
 ## Database
 mssql:
