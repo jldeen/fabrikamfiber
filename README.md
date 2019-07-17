@@ -19,7 +19,7 @@ Find "Developer Command Prompt for VS 2017" on the Start menu or by searching fo
  
 
 ```cmd
-rmdir /s /q MyCompany.Visitors.Web\bin\Release\Publish
+rmdir /s /q FabrikamFiber.Web\bin\Release\Publish
 msbuild FabrikamFiber.CallCenter.sln /t:clean /p:Configuration=Release
 msbuild FabrikamFiber.CallCenter.sln /t:build /p:Configuration=Release /p:PublishProfile=FolderProfile /p:DeployOnBuild=true
 cd FabrikamFiber.Web
